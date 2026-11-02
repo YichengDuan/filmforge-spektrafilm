@@ -16,7 +16,9 @@
   website's diffuse and lens flavors. Source Linux version is 0.1.9, not the
   website's advertised 0.3.12. Official binaries were not downloaded or executed.
 * No Resolve found at checked locations; no host plugin recognition/export test.
-  No live ComfyUI host/VHS/UI test. GUI only constructed offscreen; Qt warned that
+  Live ComfyUI registration and image/video API workflows were subsequently
+  tested on the user's existing Python 3.12.11/NumPy 2.5.4 without package changes.
+  VHS/manual UI interactions remain untested. Original GUI only constructed offscreen; Qt warned that
   QOpenGLWidget is unsupported on that offscreen platform.
 * CPU and Vulkan differ with shared profile names: diagnostic RMSE and DeltaE
   are reported in benchmarks/quality.json. Defaults/data/calibration are not
@@ -29,7 +31,20 @@
   diffusion and film/print choice. DIR tuning, print diffusion, production grain
   controls, scanner options, LUT export from OFX, gate weave and flicker are not
   exposed. Gate weave/flicker are not present in this checkout's RenderParams.
-* No GPU LUT backend; CPU mode is deterministic physical color, with unsupported
+* Native CUDA now covers the current CLI/node controls, not all OFX controls.
+  Production/synthesis grain, DIR, print diffusion, scanner tuning and HDR are
+  not exposed in this CUDA path. Cross-API grain cells can differ at float
+  boundaries; within-CUDA repeated and segmented output is exact. Initial CUDA
+  full-effects rendering was slower; current optimizations and same-GPU timed
+  comparisons are documented in CUDA_OPTIMIZATION.md. No GPU tensor interop or
+  asynchronous frame overlap is claimed.
+* Compute Sanitizer failed to inject before the first instrumented CUDA API on
+  this workstation, so memory instrumentation is unverified. Numeric A/B,
+  geometry/fallback/alpha, 100-frame temporal, live host bridge and media tests
+  pass. Nsight Compute did not collect kernel counters; reported GPU stage
+  timings use CUDA events. No system profiler permissions or drivers were changed.
+* Optional CUDA LUT interpolation is color-only, not a spectral/spatial port;
+  its nonzero grain/spatial settings are rejected. CPU mode is deterministic physical color, with unsupported
   spatial/grain amounts rejected. CPU fallback must be explicitly selected.
 * Correlated grain is optional linear residual mixing of upstream renders, not
   a native OFX temporal mode or AR(1) model. See VIDEO_COLOR_PIPELINE.md.

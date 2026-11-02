@@ -1,0 +1,18 @@
+[
+  {
+    "workflow": "Filmforge_Video_Native_CUDA",
+    "success": true,
+    "frames": 250,
+    "fps": 25,
+    "duration": {
+      "video": 10.0,
+      "audio": 10.0
+    },
+    "wall_seconds": 5.061701336002443,
+    "gpu": "NVIDIA RTX A2000 Laptop GPU",
+    "input_transfer": "bt709",
+    "output_transfer": "iec61966-2-1",
+    "width": 320,
+    "height": 180
+  }
+]

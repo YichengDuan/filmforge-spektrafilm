@@ -1,0 +1,82 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "filmforge_demo_10s.mp4"
+    }
+  },
+  "2": {
+    "class_type": "GetVideoComponents",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "SpektrafilmPreset",
+    "inputs": {
+      "film": "kodak_vision3_500t",
+      "print_profile": "kodak_2383",
+      "backend": "vulkan",
+      "grain": 0.25,
+      "halation": 0.25,
+      "diffusion": 0.1,
+      "seed": 1234,
+      "temporal_grain_correlation": 0,
+      "exposure": 0
+    }
+  },
+  "4": {
+    "class_type": "SpektrafilmVideoFrames",
+    "inputs": {
+      "images": [
+        "2",
+        0
+      ],
+      "preset_json": [
+        "3",
+        0
+      ],
+      "fps": [
+        "2",
+        2
+      ],
+      "start_frame": 0,
+      "input_transfer": "bt709"
+    }
+  },
+  "5": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "4",
+        0
+      ],
+      "fps": [
+        "4",
+        1
+      ],
+      "audio": [
+        "2",
+        1
+      ],
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none"
+    }
+  },
+  "6": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "5",
+        0
+      ],
+      "filename_prefix": "filmforge_video/vulkan_full",
+      "format": "mp4",
+      "format.codec": "h264"
+    }
+  }
+}

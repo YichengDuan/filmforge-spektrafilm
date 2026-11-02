@@ -1,0 +1,12 @@
+{
+  "backend_choices": [
+    "vulkan",
+    "cuda-spectral",
+    "cuda-lut"
+  ],
+  "previous_nodes_missing": [],
+  "image_status": "success",
+  "saved_images": 3,
+  "workflow": "Filmforge_Video_Native_CUDA.json",
+  "grouped_kernel_live_image_test": "passed, 2 images"
+}

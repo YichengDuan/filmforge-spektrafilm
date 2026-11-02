@@ -1,5 +1,76 @@
 # Ubuntu measured results
 
+## CUDA adapter optimization — A2000, 2026-11-02
+
+100 paired rotating rounds per configuration, one frame per backend per round,
+10 warmup frames, same A2000 and same FP32 spectral/spatial settings. Mean wall
+time includes the Python adapter and transfers, excludes codecs. Background display/video
+work and a ComfyUI task on the other GPU continued; these are shared-workstation results.
+
+| Portra 400 / Endura | Vulkan mean ms | Optimized CUDA mean ms | Speedup |
+|---|---:|---:|---:|
+| 720p color | 42.219 | 19.938 | 2.12x |
+| 720p full | 52.582 | 36.857 | 1.43x |
+| 720p temporal | 203.030 | 44.767 | 4.54x |
+| 1080p color | 87.538 | 39.263 | 2.23x |
+| 1080p full | 132.127 | 88.671 | 1.49x |
+| 1080p temporal | 467.214 | 101.138 | 4.62x |
+
+All 12 cases (including Vision3 500T/2383) beat Vulkan by mean time, and the
+saved original CUDA output is bitwise equal in each compared final frame.
+Full statistical samples, SD/P95, timer scope, quality checks and complete MP4 timings
+are in [CUDA_OPTIMIZATION.md](../docs/CUDA_OPTIMIZATION.md).
+The complete 250-frame MP4 commands took Vulkan/CUDA 43.442/33.220 s at 720p
+and 99.383/76.871 s at 1080p, with matching codec/audio/color tags.
+The existing ComfyUI Python 3.12.11/NumPy 2.5.4 installed-node bridge passes a
+three-frame repeated temporal-grain test. No host dependencies or startup script changed.
+Compute Sanitizer injection did not complete; no memcheck pass is claimed.
+
+
+## Native CUDA follow-up — 2026-11-02
+
+Current CLI/node controls now have a native CUDA spectral/spatial implementation.
+The comparison below uses the **same RTX A2000 Laptop GPU**, identical input/config,
+2 warmup frames and 12 samples, including NumPy/host transfer and excluding codec.
+Vulkan is explicitly full-frame. The workstation has concurrent user GPU work;
+these are measured samples, not a controlled idle-GPU hardware limit.
+
+| Resolution | Full-effects Vulkan median ms | Initial CUDA ms | Grouped CUDA ms | Grouped CUDA GPU ms |
+|---|---:|---:|---:|---:|
+| 720p | 39.619 | 48.242 | 42.871 | 20.809 |
+| 1080p | 89.931 | 109.282 | 95.928 | 48.087 |
+
+The initial CUDA/Vulkan values were sampled in the preceding run; initial Vulkan
+medians were 39.672/90.512 ms. Grouped CUDA uses the upstream default two-component
+diffusion groups. CUDA events locate diffusion+halation at 10.253+6.775 ms (720p)
+and 22.088+18.453 ms (1080p), about 82%/84% of CUDA GPU time. The unprofiled grouped
+validation independently measured 1080p 96.068 ms CUDA / 89.923 ms Vulkan.
+
+Color-only initial medians: 720p CUDA 24.977 / Vulkan 27.483 ms;
+1080p CUDA 54.200 / Vulkan 61.207 ms. Native CUDA is currently faster for the color
+chain and slower for full effects. No speedup is inferred from API name alone.
+
+Initial full-effects CUDA CLI with CPU H.264/AAC, each 250 frames at 25fps:
+
+| Resolution | Render/decode/encode s | fps | Whole command s | Video/audio s |
+|---|---:|---:|---:|---|
+| 720p | 33.910 | 7.373 | 34.592 | 10.000 / 10.005 |
+| 1080p | 74.939 | 3.336 | 75.537 | 10.000 / 10.005 |
+
+Both videos have BT.709 primaries/transfer/matrix and limited range. No new peak
+VRAM/RSS measurements were collected for CUDA. These A2000 results are not compared
+as a speed ratio against the older 3070 Ti table below.
+
+Validation: all 160 film/print pairs pass, 100-frame CUDA repeat and independent
+segments are exact, rho=.7 measured .69822. High-resolution cross-API grain cell
+hashes can differ at float boundaries; see [CUDA_BACKEND.md](../docs/CUDA_BACKEND.md).
+The grouped implementation passed the same validation and six local tests.
+Live ComfyUI existing-Python image execution passes; a separate 320×180, 250-frame,
+25fps native CUDA/AAC workflow passes with matching 10-second A/V duration.
+Public numeric evidence: cuda-native-*.json under evidence/. No Resolve test.
+
+## Original Vulkan benchmark — 2026-11-01
+
 Measured 2026-11-01 (America/New_York). Source SHAs are in upstream/lock.json.
 
 RTX 3070 Ti 8GB, NVIDIA 615.71.09, Vulkan-only ICD, Vulkan device index 1.

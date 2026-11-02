@@ -12,6 +12,7 @@ No upstream endorsement or affiliation is implied.
 | Andrea Volpato — **spektrafilm** | 调用 Python runtime 做光谱曝光、负片/印片/扫描；使用官方 profile 注册表及官方 LUT CLI；以原版测试作为参考 | [repository](https://github.com/andreavolpato/spektrafilm), [pinned commit](https://github.com/andreavolpato/spektrafilm/tree/3bb2c2d2801ff68b92019cf1dbcbb133d60832bc); GPLv3 source; profile/LUT CC BY-SA 4.0 notice is separate |
 | Aedan Diez — **spektrafilm OFX** | 编译原样 VulkanRenderer.cpp、生成的 profile tables 和原样 GLSL shader；通过薄 C ABI 处理离线帧，沿用 halation、diffusion、density grain 与 print/scan | [repository](https://github.com/chaert-s/spektrafilm-ofx), [pinned commit](https://github.com/chaert-s/spektrafilm-ofx/tree/86476afc5b077de77e2278e3658d1ba9309892a1), [website](https://spektrafilm.114c.de/); GPLv3 public source; official binaries/LUT notices have different scope |
 | Academy Software Foundation / OpenFX contributors — **OpenFX SDK** | 仅用于构建上游 OFX 插件的头文件与接口定义；独立帧桥接本身不模拟 OFX 宿主 | [repository](https://github.com/AcademySoftwareFoundation/openfx), [OFX_Release_1.5.1 commit](https://github.com/AcademySoftwareFoundation/openfx/tree/ab779510b2655b4d11a7e01e5c521f9aa8c88976); BSD 3-Clause plus embedded notices |
+| G-Truc Creation — **GLM 1.0.1** | CUDA 移植中的 GLSL vector 数学兼容；只下载到工作区 | [pinned source](https://github.com/g-truc/glm/tree/0af55ccecd98d4e5a8d1fad7de25ba429d60e863); 采用 MIT 许可选项，保留 copying.txt |
 
 上游文件按 SHA 下载，不将它们的 Git 历史或数据重新包装成本仓库的源文件。
 具体源码入口：
@@ -51,10 +52,14 @@ Maintainer: **YichengDuan**。开发中使用 OpenAI Codex 辅助编写与验证
 新增内容为：Ubuntu 工作区隔离脚本、固定源码/依赖版本、C ABI 包装、FFmpeg
 流式媒体 CLI、显式 SDR 色彩传递、EXR 续跑、absolute frame/seed 规则、独立
 ComfyUI 子进程节点、测试和本机实测文档。
+原生 CUDA 光谱链、halation/diffusion/preview grain 移植也来自上述 OFX 公式与
+shader；本仓库新增 CUDA 调度、语法转换、GLM 兼容和验证，不将胶片物理算法署名为原创。
+另有可选颜色 LUT 缓存与 CUDA 插值，和原生光谱 CUDA 是不同的后端。
 
 `temporal_grain_correlation > 0` 是本桥接扩展：对原版 grain 渲染结果的线性残差
 混合；不是上游原生时序模式，不能声称与 OFX 完全一致。严格 CPU/GPU parity、
-Resolve 和实时 ComfyUI 宿主仍有未完成验证，详情见 docs/KNOWN_LIMITATIONS.md。
+Resolve、VHS 与手动前端操作仍未验证；本机 ComfyUI 图片/视频 API 已通过。
+详情见 docs/KNOWN_LIMITATIONS.md。
 
 ## 发布边界
 

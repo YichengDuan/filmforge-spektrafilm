@@ -43,6 +43,20 @@ profile indices and shader code authoritative. Do not add a new film algorithm.
 Use separate build directories with an explicit SDK path, so the README's nested
 OFX/SpektraFilm layout is unnecessary. Upstream worktrees remain unmodified.
 
+Native CUDA addition: `cuda_spectral_tables.cpp` reuses the same upstream CPU
+spectral/diffusion preparation helpers without constructing a Vulkan renderer.
+`cuda_spectral.cu` runs the current linear Rec.709/default print pipeline on CUDA.
+Halation/diffusion/grain arithmetic is syntax-translated from pinned GLSL using
+`generate_cuda_effects.py` and GLM; exposure/development/81-band integration are
+native CUDA ports. CUDA operation specialization and two-component diffusion
+groups preserve the upstream order. NumPy/ctypes and the existing subprocess
+media layer transport frames. See CUDA_BACKEND.md for the actual tested scope.
+The optimized adapter transfers packed RGB/RGBA directly, uses shared-memory
+tiles for full-resolution Gaussian passes (with the same large-radius fallback),
+and reuses developed film density for temporal grain instead of repeating the
+exposure/spatial stages. Final temporal residual mixing preserves FP32 subtraction
+and FP64 scalar arithmetic from NumPy. See CUDA_OPTIMIZATION.md for A/B checks.
+
 ## Verification boundary
 
 Successful compilation or harness rendering is not verification inside Resolve.
@@ -54,13 +68,13 @@ The standalone bridge, temporal semantics and media behavior require their own t
 
 | Feature | Python upstream | OFX upstream | Offline CLI | ComfyUI bridge |
 |---|---|---|---|---|
-| Spectral film/print/scan | runtime tested | GPU bridge tested; host untested | Vulkan + CPU physical tested | subprocess tested; host untested |
+| Spectral film/print/scan | runtime tested | GPU bridge tested; OFX host untested | Vulkan, native CUDA + CPU physical tested | live host image/video API tested |
 | GUI | Qt/napari | OFX host | no | existing host only |
 | LUT export | official 33³/65³ exports; QA has failures | host export untested | use official Python CLI separately | no LUT node |
-| Halation/diffusion/grain | deterministic color + spatial API exists | Vulkan passes implemented; upstream harness count failures | upstream halation/camera diffusion/preview grain tested | Vulkan subprocess effects tested |
+| Halation/diffusion/grain | deterministic color + spatial API exists | Vulkan passes implemented; upstream harness count failures | Vulkan + native CUDA halation/camera diffusion/preview grain tested | Vulkan/CUDA subprocess effects tested |
 | General MP4 decode/encode | no media CLI | host provides | SDR H.264/H.265 + audio tested | no VideoFile/VHS node |
 | Stateless segmented processing | CPU deterministic color tested | animation parameter quantizes 24 Hz | absolute grain index + EXR overlap exact | subprocess segment overlap exact |
-| Runtime proof on this machine | TIFF/EXR, 829 tests pass, 5 fail; GUI offscreen | Debug/Release and float/half copy; no Resolve | 720p/1080p 250-frame streams; 4K one frame | 3 nodes defined; no existing host changed |
+| Runtime proof on this machine | TIFF/EXR, 829 tests pass, 5 fail; GUI offscreen | Debug/Release and float/half copy; no Resolve | Vulkan/CUDA 720p/1080p 250-frame streams; Vulkan 4K one frame | 3 nodes installed; host Python/dependencies preserved; native CUDA live image/video tested |
 
 Optional rho>0 temporal correlation is an explicitly labeled bridge extension
 that mixes upstream grain residuals in linear output. Default rho=0 uses upstream

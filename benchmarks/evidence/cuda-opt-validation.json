@@ -1,0 +1,1567 @@
+{
+  "scope": "Current Filmforge CLI/node features, not all OFX advanced controls",
+  "gpu_snapshot": "index, name, memory.used [MiB], utilization.gpu [%]\n0, NVIDIA GeForce RTX 3070 Ti, 2389 MiB, 0 %\n1, NVIDIA RTX A2000 Laptop GPU, 1616 MiB, 32 %\n",
+  "conditions": "Live workstation; other user GPU work may cause contention. No CUDA speed guarantee.",
+  "profiles": [
+    {
+      "film": "kodak_ektar_100",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.262027016665918e-07,
+      "max_abs": 8.940696716308594e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektar_100",
+      "paper": "kodak_ultra_endura",
+      "rmse": 8.123399929533897e-08,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 2.4855136871337985e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektar_100",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.2319997606981178e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektar_100",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.120171512667458e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektar_100",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.3543223718090305e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektar_100",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.4696471137165696e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektar_100",
+      "paper": "kodak_2383",
+      "rmse": 1.090138608893172e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektar_100",
+      "paper": "kodak_2393",
+      "rmse": 1.3953686875656542e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 5.364418029785156e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.3538953447239266e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 3.7789344787597846e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "kodak_ultra_endura",
+      "rmse": 9.82329772505606e-08,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.0738930112950986e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.123886584523437e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.0501586943495053e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.3703769665442374e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "kodak_2383",
+      "rmse": 1.6209653311907618e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_160",
+      "paper": "kodak_2393",
+      "rmse": 1.2214181081249177e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.333930818918106e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 3.7789344787597846e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0185135690006312e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.409553845074024e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.2699732464643198e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.2145836165039148e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.2056015543791383e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "kodak_2383",
+      "rmse": 1.5489474825636455e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_400",
+      "paper": "kodak_2393",
+      "rmse": 1.1931595624918056e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.1978040340403737e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "kodak_ultra_endura",
+      "rmse": 9.336801840124919e-08,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.2316078080299546e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.3923886512626964e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.0735693647551615e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.669757275039895e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.2229890823364305e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "kodak_2383",
+      "rmse": 1.1949029866427052e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800",
+      "paper": "kodak_2393",
+      "rmse": 1.378776866881593e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.1673934223146204e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "kodak_ultra_endura",
+      "rmse": 9.944968092687358e-08,
+      "max_abs": 3.5762786865234375e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.2876131919219063e-07,
+      "max_abs": 8.940696716308594e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.437419614449032e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 4.869699478149424e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.137489198853682e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.4067660116133563e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "kodak_2383",
+      "rmse": 1.4660966907699988e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push1",
+      "paper": "kodak_2393",
+      "rmse": 1.1451859954682656e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.3081916792075501e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.6269426345825243e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "kodak_ultra_endura",
+      "rmse": 8.792019106101083e-08,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.081560134887705e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.1667062202652636e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.129243850708008e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.3091634073499605e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.2719835898999533e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.1114679310475295e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "kodak_2383",
+      "rmse": 1.2343216513324692e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_portra_800_push2",
+      "paper": "kodak_2393",
+      "rmse": 1.1889844848133482e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.2894926929676254e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "kodak_ultra_endura",
+      "rmse": 9.792629226184355e-08,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.2403129724159555e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.310488575675189e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.1600489401282297e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 3.7789344787597846e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.2831162949425873e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "kodak_2383",
+      "rmse": 1.5380081273455856e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_gold_200",
+      "paper": "kodak_2393",
+      "rmse": 1.544760699667465e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.187040271350648e-07,
+      "max_abs": 5.066394805908203e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0028364370579972e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.044210719266687e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.6379295164093175e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 5.364418029785156e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.3978554114624154e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.24012210471173e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "kodak_2383",
+      "rmse": 1.2477405703375834e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ultramax_400",
+      "paper": "kodak_2393",
+      "rmse": 1.1369766718315266e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.2290752399800214e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0705488685547339e-07,
+      "max_abs": 3.8743019104003906e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.0887602549504965e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.1356544866956515e-07,
+      "max_abs": 7.748603820800781e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.4176515349467256e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.386139806034949e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "kodak_2383",
+      "rmse": 1.3097809152581694e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_50d",
+      "paper": "kodak_2393",
+      "rmse": 1.248759689261393e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.3478202480934618e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "kodak_ultra_endura",
+      "rmse": 9.634305430255477e-08,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.081560134887705e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.3509994336210377e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.2141119993886843e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.327240187292386e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.1778446395251538e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "kodak_2383",
+      "rmse": 1.1036337345882258e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_250d",
+      "paper": "kodak_2393",
+      "rmse": 1.2325401485002424e-07,
+      "max_abs": 6.854534149169922e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.2709751057966487e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0385257026217982e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.1090725047145345e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.454853491091001e-07,
+      "max_abs": 5.662441253662109e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.3829643727805485e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.6972928072226312e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "kodak_2383",
+      "rmse": 1.506096071689302e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.869699478149424e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_verita_200d",
+      "paper": "kodak_2393",
+      "rmse": 1.61125087401066e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 4.869699478149424e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.3675135837332544e-07,
+      "max_abs": 9.387731552124023e-07,
+      "p99": 4.869699478149424e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0729235945569708e-07,
+      "max_abs": 1.0132789611816406e-06,
+      "p99": 3.328919410705571e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.4153096695575165e-07,
+      "max_abs": 1.0281801223754883e-06,
+      "p99": 4.971027374267597e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.6859431403172936e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 4.869699478149424e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.3978735091045047e-07,
+      "max_abs": 6.705522537231445e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.8332320221414438e-07,
+      "max_abs": 7.748603820800781e-07,
+      "p99": 6.556510925292969e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "kodak_2383",
+      "rmse": 1.5038673222658207e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_200t",
+      "paper": "kodak_2393",
+      "rmse": 1.701527449475466e-07,
+      "max_abs": 8.493661880493164e-07,
+      "p99": 6.061792373657236e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.2960274360317057e-07,
+      "max_abs": 1.0728836059570312e-06,
+      "p99": 3.7789344787597846e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0124760407408079e-07,
+      "max_abs": 8.344650268554688e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.193354909300862e-07,
+      "max_abs": 8.046627044677734e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.1960660715583688e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.178146063644537e-07,
+      "max_abs": 7.450580596923828e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.301990142479067e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "kodak_2383",
+      "rmse": 1.4188947590973838e-07,
+      "max_abs": 7.003545761108398e-07,
+      "p99": 4.2229890823364305e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_vision3_500t",
+      "paper": "kodak_2393",
+      "rmse": 1.3567934838881237e-07,
+      "max_abs": 7.152557373046875e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.3645295449290335e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0273295423863474e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.081560134887705e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.4088171616652944e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.2648634988237334e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.4107084258228784e-07,
+      "max_abs": 8.344650268554688e-07,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.3334094112570977e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "kodak_2383",
+      "rmse": 1.2901199034202582e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.869699478149424e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_pro_400h",
+      "paper": "kodak_2393",
+      "rmse": 1.136467974832541e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.2899406025693405e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.3644483482951028e-07,
+      "max_abs": 4.172325134277344e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.234699973963927e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.217726154271046e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.1805930470409499e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.6269426345825243e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.339035326561809e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "kodak_2383",
+      "rmse": 1.3680440560970728e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.677606582641611e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_c200",
+      "paper": "kodak_2393",
+      "rmse": 1.7053618586093117e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 5.364418029785156e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.0391953751793368e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "kodak_ultra_endura",
+      "rmse": 1.0750790042493993e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.1051037788849408e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "kodak_supra_endura",
+      "rmse": 1.243939341806845e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "kodak_portra_endura",
+      "rmse": 1.0802338238560662e-07,
+      "max_abs": 5.364418029785156e-07,
+      "p99": 4.2736530303955173e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.3275856164863673e-07,
+      "max_abs": 4.76837158203125e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "kodak_2383",
+      "rmse": 1.4872474123264537e-07,
+      "max_abs": 5.960464477539062e-07,
+      "p99": 4.2229890823364305e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_xtra_400",
+      "paper": "kodak_2393",
+      "rmse": 1.8771997821309307e-07,
+      "max_abs": 6.556510925292969e-07,
+      "p99": 5.46574592590333e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "kodak_endura_premier",
+      "rmse": 1.0619944664053153e-07,
+      "max_abs": 3.5762786865234375e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "kodak_ultra_endura",
+      "rmse": 7.975719281285885e-08,
+      "max_abs": 3.2782554626464844e-07,
+      "p99": 3.2782554626464844e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 5.136434986592319e-08,
+      "max_abs": 1.7881393432617188e-07,
+      "p99": 1.7881393432617188e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "kodak_supra_endura",
+      "rmse": 4.772829876573703e-08,
+      "max_abs": 1.1920928955078125e-07,
+      "p99": 1.1920928955078125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "kodak_portra_endura",
+      "rmse": 4.704066200748335e-08,
+      "max_abs": 1.1920928955078125e-07,
+      "p99": 1.1920928955078125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 8.174669682477555e-08,
+      "max_abs": 2.980232238769531e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "kodak_2383",
+      "rmse": 7.878945631165249e-08,
+      "max_abs": 2.384185791015625e-07,
+      "p99": 2.384185791015625e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_ektachrome_100",
+      "paper": "kodak_2393",
+      "rmse": 7.729559241499029e-08,
+      "max_abs": 2.980232238769531e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "kodak_endura_premier",
+      "rmse": 3.72183754494725e-08,
+      "max_abs": 1.1920928955078125e-07,
+      "p99": 1.1920928955078125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "kodak_ultra_endura",
+      "rmse": 4.064704136182357e-08,
+      "max_abs": 1.1920928955078125e-07,
+      "p99": 1.1920928955078125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 2.493305524984922e-08,
+      "max_abs": 1.4901161193847656e-07,
+      "p99": 5.960464477539063e-08,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "kodak_supra_endura",
+      "rmse": 5.705519628874807e-08,
+      "max_abs": 1.4901161193847656e-07,
+      "p99": 1.4901161193847656e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "kodak_portra_endura",
+      "rmse": 4.060075101579971e-08,
+      "max_abs": 1.1920928955078125e-07,
+      "p99": 1.1920928955078125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 3.9640667116753156e-08,
+      "max_abs": 1.7881393432617188e-07,
+      "p99": 1.043081283569336e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "kodak_2383",
+      "rmse": 2.0014879528156276e-08,
+      "max_abs": 7.450580596923828e-08,
+      "p99": 5.960464477539063e-08,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "kodak_kodachrome_64",
+      "paper": "kodak_2393",
+      "rmse": 3.8444743303719815e-08,
+      "max_abs": 1.1920928955078125e-07,
+      "p99": 1.1920928955078125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "kodak_endura_premier",
+      "rmse": 5.76982588566113e-08,
+      "max_abs": 2.2351741790771484e-07,
+      "p99": 2.2351741790771484e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "kodak_ultra_endura",
+      "rmse": 4.533517894380624e-08,
+      "max_abs": 1.4156103134155273e-07,
+      "p99": 1.4156103134155273e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 1.0108009061669374e-07,
+      "max_abs": 3.5762786865234375e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "kodak_supra_endura",
+      "rmse": 4.9653415018669656e-08,
+      "max_abs": 1.7881393432617188e-07,
+      "p99": 1.7881393432617188e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "kodak_portra_endura",
+      "rmse": 6.51562682789148e-08,
+      "max_abs": 2.2351741790771484e-07,
+      "p99": 2.2351741790771484e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 5.3857537999567725e-08,
+      "max_abs": 1.6391277313232422e-07,
+      "p99": 1.6391277313232422e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "kodak_2383",
+      "rmse": 4.908150206673515e-08,
+      "max_abs": 1.1920928955078125e-07,
+      "p99": 1.1920928955078125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_velvia_100",
+      "paper": "kodak_2393",
+      "rmse": 8.901914265013384e-08,
+      "max_abs": 3.5762786865234375e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "kodak_endura_premier",
+      "rmse": 9.913170241807133e-08,
+      "max_abs": 2.980232238769531e-07,
+      "p99": 2.980232238769531e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "kodak_ultra_endura",
+      "rmse": 2.277932804353012e-08,
+      "max_abs": 8.940696716308594e-08,
+      "p99": 8.940696716308594e-08,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "kodak_ektacolor_edge",
+      "rmse": 8.762405677368017e-08,
+      "max_abs": 3.5762786865234375e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "kodak_supra_endura",
+      "rmse": 6.466369453343896e-08,
+      "max_abs": 2.5331974029541016e-07,
+      "p99": 2.5331974029541016e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "kodak_portra_endura",
+      "rmse": 7.452254637020773e-08,
+      "max_abs": 2.384185791015625e-07,
+      "p99": 2.384185791015625e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "fujifilm_crystal_archive_typeii",
+      "rmse": 1.5035708461311067e-08,
+      "max_abs": 7.450580596923828e-08,
+      "p99": 5.960464477539063e-08,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "kodak_2383",
+      "rmse": 5.2778721481169784e-08,
+      "max_abs": 1.7881393432617188e-07,
+      "p99": 1.7881393432617188e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "film": "fujifilm_provia_100f",
+      "paper": "kodak_2393",
+      "rmse": 8.310831272024043e-08,
+      "max_abs": 3.5762786865234375e-07,
+      "p99": 3.5762786865234375e-07,
+      "fraction_over_1e_4": 0.0
+    }
+  ],
+  "effects": [
+    {
+      "config_delta": {},
+      "rmse": 1.4030723904836043e-07,
+      "max_abs": 8.344650268554688e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "config_delta": {
+        "halation": 0.5
+      },
+      "rmse": 1.4150106034744801e-07,
+      "max_abs": 8.195638656616211e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "config_delta": {
+        "diffusion": 0.4
+      },
+      "rmse": 1.3937246840921368e-07,
+      "max_abs": 8.940696716308594e-07,
+      "p99": 3.8743019104003906e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "config_delta": {
+        "grain": 0.5
+      },
+      "rmse": 1.5237596687320001e-07,
+      "max_abs": 9.834766387939453e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "config_delta": {
+        "halation": 0.5,
+        "diffusion": 0.4,
+        "grain": 0.5
+      },
+      "rmse": 1.511044435767822e-07,
+      "max_abs": 8.940696716308594e-07,
+      "p99": 4.172325134277344e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "config_delta": {
+        "halation": 0.5,
+        "diffusion": 0.4,
+        "grain": 0.5,
+        "temporal_grain_correlation": 0.7
+      },
+      "rmse": 1.650459749445121e-07,
+      "max_abs": 1.0132789611816406e-06,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    }
+  ],
+  "timings": [
+    {
+      "width": 1280,
+      "height": 720,
+      "effects": false,
+      "backend": "vulkan",
+      "frames": 12,
+      "median_ms": 32.63901200261898,
+      "p95_ms": 38.83103404950816,
+      "mean_fps": 29.80414696424198,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0,
+        "halation": 0,
+        "diffusion": 0,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "effects": false,
+      "backend": "cuda-spectral",
+      "frames": 12,
+      "median_ms": 14.830513500783127,
+      "p95_ms": 16.420192846271675,
+      "mean_fps": 66.85826202424217,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0,
+        "halation": 0,
+        "diffusion": 0,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      },
+      "median_cuda_kernel_ms": 3.0316479206085205
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "effects": true,
+      "backend": "vulkan",
+      "frames": 12,
+      "median_ms": 49.35540400038008,
+      "p95_ms": 52.95064384845318,
+      "mean_fps": 20.53319228289986,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0.35,
+        "halation": 0.3,
+        "diffusion": 0.1,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "effects": true,
+      "backend": "cuda-spectral",
+      "frames": 12,
+      "median_ms": 33.58253950136714,
+      "p95_ms": 35.11336759765982,
+      "mean_fps": 29.95261040492722,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0.35,
+        "halation": 0.3,
+        "diffusion": 0.1,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      },
+      "median_cuda_kernel_ms": 21.286831855773926
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "effects": false,
+      "backend": "vulkan",
+      "frames": 12,
+      "median_ms": 71.12090099690249,
+      "p95_ms": 74.67461604755954,
+      "mean_fps": 13.978881204610321,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0,
+        "halation": 0,
+        "diffusion": 0,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "effects": false,
+      "backend": "cuda-spectral",
+      "frames": 12,
+      "median_ms": 32.81283050455386,
+      "p95_ms": 37.778301899379585,
+      "mean_fps": 29.863106102707413,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0,
+        "halation": 0,
+        "diffusion": 0,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      },
+      "median_cuda_kernel_ms": 7.537823915481567
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "effects": true,
+      "backend": "vulkan",
+      "frames": 12,
+      "median_ms": 105.14043449802557,
+      "p95_ms": 112.81932525380398,
+      "mean_fps": 9.42569481095606,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0.35,
+        "halation": 0.3,
+        "diffusion": 0.1,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "effects": true,
+      "backend": "cuda-spectral",
+      "frames": 12,
+      "median_ms": 74.85945900407387,
+      "p95_ms": 77.61506894239574,
+      "mean_fps": 13.340450523143828,
+      "config": {
+        "film": "kodak_portra_400",
+        "paper": "kodak_portra_endura",
+        "exposure": 0,
+        "grain": 0.35,
+        "halation": 0.3,
+        "diffusion": 0.1,
+        "seed": 1234,
+        "temporal_grain_correlation": 0
+      },
+      "median_cuda_kernel_ms": 48.77288055419922
+    }
+  ],
+  "profile_pairings_passed": 160,
+  "temporal": {
+    "frames": 100,
+    "repeat_exact": true,
+    "segments_exact": true,
+    "variance": 1.9995246702819713e-07,
+    "adjacent_correlation": 0.0012481179371276986,
+    "rho_0_7_observed": 0.6982247509673092
+  },
+  "rejected": [
+    "nan",
+    "negative",
+    "bad_profile",
+    "bad_correlation",
+    "bad_frame"
+  ],
+  "resolution_parity": [
+    {
+      "width": 1280,
+      "height": 720,
+      "effects": false,
+      "rmse": 1.538884355741213e-07,
+      "max_abs": 1.3709068298339844e-06,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "effects": true,
+      "rmse": 0.00018599524125609415,
+      "max_abs": 0.026736140251159668,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0024952980324074074
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "effects": false,
+      "rmse": 1.5378595590184386e-07,
+      "max_abs": 1.3709068298339844e-06,
+      "p99": 4.76837158203125e-07,
+      "fraction_over_1e_4": 0.0
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "effects": true,
+      "rmse": 0.00037002185025119806,
+      "max_abs": 0.04631251096725464,
+      "p99": 5.364418029785156e-07,
+      "fraction_over_1e_4": 0.0060831404320987655
+    }
+  ],
+  "status": "passed"
+}

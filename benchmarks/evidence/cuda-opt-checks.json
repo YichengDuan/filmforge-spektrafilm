@@ -1,0 +1,46 @@
+{
+  "local_pytest": {
+    "passed": 6,
+    "failed": 0,
+    "warnings": 1
+  },
+  "cuda_optimization_ab": {
+    "status": "passed",
+    "rgb_rgba_geometry_cases": 16,
+    "rho_channel_cases": 8,
+    "exact_output": true
+  },
+  "profile_effect_temporal_validation": {
+    "status": "passed",
+    "profile_pairs": 160,
+    "repeat_100_frames_exact": true,
+    "segments_exact": true
+  },
+  "a2000_performance": {
+    "rounds_per_configuration": 100,
+    "frames_per_round_per_backend": 1,
+    "configurations": 12,
+    "backends": 3,
+    "all_cuda_means_below_vulkan": true
+  },
+  "complete_mp4": {
+    "resolutions": [
+      720,
+      1080
+    ],
+    "frames_each": 250,
+    "same_cpu_encoder": "libx264",
+    "audio_color_metadata": "passed",
+    "cuda_whole_command_faster_both": true
+  },
+  "existing_host_node": "passed with original Python 3.12.11 / NumPy 2.5.4; no dependency changes",
+  "compute_sanitizer": {
+    "status": "not_completed",
+    "reason": "Target application terminated before first instrumented API call",
+    "command": "compute-sanitizer --target-processes all --injection-path /usr/lib/nvidia-cuda-toolkit/compute-sanitizer --tool memcheck --error-exitcode 99 .venv/bin/python .cache/test_cuda_memcheck.py"
+  },
+  "nsight_compute": {
+    "status": "no_kernel_metrics_collected",
+    "gpu_stage_timing_source": "CUDA events"
+  }
+}

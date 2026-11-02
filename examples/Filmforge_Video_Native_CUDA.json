@@ -1,0 +1,397 @@
+{
+  "last_node_id": 7,
+  "last_link_id": 8,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "pos": [
+        20,
+        80
+      ],
+      "size": [
+        290,
+        240
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "filmforge_demo_10s.mp4"
+      ],
+      "title": "1. 选择输入视频 / SDR"
+    },
+    {
+      "id": 2,
+      "type": "GetVideoComponents",
+      "pos": [
+        370,
+        100
+      ],
+      "size": [
+        250,
+        190
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "bit_depth",
+          "type": "COMBO",
+          "links": null
+        },
+        {
+          "name": "color_space",
+          "type": "COMBO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetVideoComponents"
+      },
+      "widgets_values": [],
+      "title": "2. 拆分帧、原音轨和帧率"
+    },
+    {
+      "id": 3,
+      "type": "SpektrafilmPreset",
+      "pos": [
+        20,
+        400
+      ],
+      "size": [
+        330,
+        370
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "preset_json",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SpektrafilmPreset"
+      },
+      "widgets_values": [
+        "kodak_vision3_500t",
+        "kodak_2383",
+        "cuda-spectral",
+        0.25,
+        0.25,
+        0.1,
+        1234,
+        0,
+        0
+      ],
+      "title": "3. CUDA 原生光谱与空间效果"
+    },
+    {
+      "id": 4,
+      "type": "SpektrafilmVideoFrames",
+      "pos": [
+        690,
+        120
+      ],
+      "size": [
+        330,
+        230
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "preset_json",
+          "type": "STRING",
+          "link": 5,
+          "widget": {
+            "name": "preset_json"
+          }
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "link": 4,
+          "widget": {
+            "name": "fps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SpektrafilmVideoFrames"
+      },
+      "widgets_values": [
+        "",
+        25,
+        0,
+        "bt709"
+      ],
+      "title": "4. 逐帧胶片调色 / 选择输入 transfer"
+    },
+    {
+      "id": 5,
+      "type": "CreateVideo",
+      "pos": [
+        1090,
+        110
+      ],
+      "size": [
+        300,
+        250
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "link": 7,
+          "widget": {
+            "name": "fps"
+          }
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        25,
+        "auto",
+        "sRGB",
+        "none"
+      ],
+      "title": "5. 合回原音轨与帧率"
+    },
+    {
+      "id": 6,
+      "type": "SaveVideo",
+      "pos": [
+        1470,
+        90
+      ],
+      "size": [
+        340,
+        350
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "filmforge_video/cuda_native",
+        "mp4",
+        "h264",
+        "auto"
+      ],
+      "title": "6. 导出 MP4 / H.264"
+    },
+    {
+      "id": 7,
+      "type": "Note",
+      "pos": [
+        410,
+        460
+      ],
+      "size": [
+        650,
+        260
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "用法：选择视频，调整胶片/相纸/exposure，然后运行。原音轨和 fps 自动连接。\n原生 CUDA 移植 81 波段色彩链、密度颗粒、曝光阶段 halation 与 camera diffusion。覆盖当前节点功能；未覆盖 OFX 的全部高级参数。\n演示输入为 BT.709：input_transfer=bt709；若是 ComfyUI 保存的 sRGB 视频，改选 srgb。HDR/Log 需先转换。输出为 SDR sRGB / H.264。视频批次占系统内存，长片请分段并设置绝对 start_frame。\n测试 GPU 为 A2000。安装或更新后重启 ComfyUI，再选择后端。"
+      ],
+      "title": "说明 / Important"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "VIDEO"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      2,
+      1,
+      5,
+      2,
+      "AUDIO"
+    ],
+    [
+      4,
+      2,
+      2,
+      4,
+      2,
+      "FLOAT"
+    ],
+    [
+      5,
+      3,
+      0,
+      4,
+      1,
+      "STRING"
+    ],
+    [
+      6,
+      4,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      4,
+      1,
+      5,
+      1,
+      "FLOAT"
+    ],
+    [
+      8,
+      5,
+      0,
+      6,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        30,
+        30
+      ]
+    }
+  },
+  "version": 0.4
+}

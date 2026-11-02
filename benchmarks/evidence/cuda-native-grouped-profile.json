@@ -1,0 +1,68 @@
+[
+  {
+    "width": 1280,
+    "height": 720,
+    "config": {
+      "film": "kodak_portra_400",
+      "paper": "kodak_portra_endura",
+      "exposure": 0,
+      "grain": 0.35,
+      "halation": 0.3,
+      "diffusion": 0.1,
+      "seed": 1234,
+      "temporal_grain_correlation": 0
+    },
+    "results": {
+      "vulkan": {
+        "median_ms": 39.618986505956855,
+        "p95_ms": 41.49614240086521
+      },
+      "cuda-spectral": {
+        "median_ms": 42.8714139998192,
+        "p95_ms": 43.39995670306962,
+        "stage_ms": {
+          "exposure": 0.4238880127668381,
+          "diffusion": 10.253312110900879,
+          "halation": 6.774784088134766,
+          "develop_grain": 0.5242879986763,
+          "print_scan": 2.1780478954315186
+        },
+        "kernel_ms": 20.8090877532959,
+        "diffusion_dispatches": 28
+      }
+    }
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "config": {
+      "film": "kodak_portra_400",
+      "paper": "kodak_portra_endura",
+      "exposure": 0,
+      "grain": 0.35,
+      "halation": 0.3,
+      "diffusion": 0.1,
+      "seed": 1234,
+      "temporal_grain_correlation": 0
+    },
+    "results": {
+      "vulkan": {
+        "median_ms": 89.93092350283405,
+        "p95_ms": 94.01684244876378
+      },
+      "cuda-spectral": {
+        "median_ms": 95.92814600182464,
+        "p95_ms": 96.62174275363213,
+        "stage_ms": {
+          "exposure": 0.9107039868831635,
+          "diffusion": 22.088191986083984,
+          "halation": 18.45299243927002,
+          "develop_grain": 1.2743680477142334,
+          "print_scan": 5.434367895126343
+        },
+        "kernel_ms": 48.08667182922363,
+        "diffusion_dispatches": 30
+      }
+    }
+  }
+]

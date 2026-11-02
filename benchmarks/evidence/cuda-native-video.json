@@ -1,0 +1,48 @@
+[
+  {
+    "height": 720,
+    "backend": "cuda-spectral",
+    "frames": 250,
+    "seconds": 33.90969991899328,
+    "fps": 7.37252174443371,
+    "wall_seconds": 34.59221839300881,
+    "encoder": "libx264",
+    "video_seconds": 10.0,
+    "audio_seconds": 10.005,
+    "output_transfer": "bt709",
+    "config": {
+      "film": "kodak_portra_400",
+      "paper": "kodak_portra_endura",
+      "backend": "cuda-spectral",
+      "grain": 0.35,
+      "halation": 0.3,
+      "diffusion": 0.1,
+      "exposure": 0,
+      "seed": 1234,
+      "temporal_grain_correlation": 0
+    }
+  },
+  {
+    "height": 1080,
+    "backend": "cuda-spectral",
+    "frames": 250,
+    "seconds": 74.9386622870079,
+    "fps": 3.3360616852556553,
+    "wall_seconds": 75.5371689760068,
+    "encoder": "libx264",
+    "video_seconds": 10.0,
+    "audio_seconds": 10.005,
+    "output_transfer": "bt709",
+    "config": {
+      "film": "kodak_portra_400",
+      "paper": "kodak_portra_endura",
+      "backend": "cuda-spectral",
+      "grain": 0.35,
+      "halation": 0.3,
+      "diffusion": 0.1,
+      "exposure": 0,
+      "seed": 1234,
+      "temporal_grain_correlation": 0
+    }
+  }
+]

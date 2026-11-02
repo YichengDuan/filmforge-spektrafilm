@@ -112,6 +112,18 @@ def physical(rgb, config):
     return result.astype(np.float32)
 
 
+def make_engine(backend):
+    if backend=='vulkan': return Vulkan()
+    if backend=='cuda-lut':
+        from cuda_lut import CudaLut
+        return CudaLut(Vulkan)
+    if backend=='cuda-spectral':
+        from cuda_spectral import CudaSpectral
+        return CudaSpectral()
+    if backend=='cpu-physical': return None
+    raise ValueError('Unknown backend: '+str(backend))
+
+
 def write_exr(path, frame):
     import OpenImageIO as oiio
     out=oiio.ImageOutput.create(str(path))
@@ -166,11 +178,15 @@ def worker(job_path):
     if not np.isfinite(frames).all() or np.any(frames<0) or np.any(frames>1):
         raise ValueError('Worker transport requires bounded finite sRGB frames')
     cfg=job['config']
-    engine=Vulkan() if cfg['backend']=='vulkan' else None
+    transfer=job.get('input_transfer','srgb')
+    if transfer not in ('srgb','bt709','linear-rec709'):
+        raise ValueError('Unknown worker input transfer')
+    engine=make_engine(cfg['backend'])
     result=np.lib.format.open_memmap(job['output'],mode='w+',dtype=np.float32,shape=frames.shape)
     try:
         for i,frame in enumerate(frames):
-            linear=srgb_decode(frame[...,:3])
+            rgb=frame[...,:3]
+            linear=srgb_decode(rgb) if transfer=='srgb' else (bt709_decode(rgb) if transfer=='bt709' else rgb)
             if frame.shape[2]==4:
                 linear=np.concatenate([linear,frame[...,3:4]],axis=2)
             rendered=engine.render(linear,cfg,job.get('start_frame',0)+i) if engine else physical(linear,cfg)
@@ -183,10 +199,10 @@ def worker(job_path):
 
 
 def main(argv=None):
-    p=argparse.ArgumentParser(description='Offline adapter over the actual spektrafilm OFX Vulkan renderer. SDR only.')
+    p=argparse.ArgumentParser(description='Spektrafilm offline adapter: upstream Vulkan or native CUDA spectral/spatial rendering. SDR only.')
     p.add_argument('--input',type=Path)
     p.add_argument('--output',type=Path)
-    p.add_argument('--backend',choices=['vulkan','cpu-physical'],default='vulkan')
+    p.add_argument('--backend',choices=['vulkan','cuda-lut','cuda-spectral','cpu-physical'],default='vulkan')
     p.add_argument('--film',default='kodak_portra_400')
     p.add_argument('--print',dest='paper',default='kodak_portra_endura')
     p.add_argument('--grain',type=float,default=0)
@@ -209,7 +225,14 @@ def main(argv=None):
     p.add_argument('--benchmark',action='store_true')
     p.add_argument('--list-profiles',action='store_true')
     p.add_argument('--worker-job',type=Path,help=argparse.SUPPRESS)
+    p.add_argument('--prepare-lut',type=Path,help=argparse.SUPPRESS)
     a=p.parse_args(argv)
+    if a.prepare_lut:
+        from cuda_lut import LutBaker
+        baker=LutBaker(Vulkan)
+        baker.prepare(json.loads(a.prepare_lut.read_text()))
+        print(json.dumps({'cache':str(baker.last_cache),'bake_seconds':baker.bake_seconds}))
+        return
     if a.worker_job:
         worker(a.worker_job); return
     if a.preset:
@@ -221,12 +244,12 @@ def main(argv=None):
             flag='--print' if k=='paper' else '--'+k.replace('_','-')
             if flag not in (argv if argv is not None else sys.argv[1:]): setattr(a,k,v)
     config={k:getattr(a,k) for k in ['film','paper','backend','grain','halation','diffusion','exposure','seed','temporal_grain_correlation']}
-    if a.backend not in ('vulkan','cpu-physical'): p.error('Invalid backend')
+    if a.backend not in ('vulkan','cuda-lut','cuda-spectral','cpu-physical'): p.error('Invalid backend')
     if not isinstance(a.seed,int) or not 0<=a.seed<=0xffffffff: p.error('seed must be uint32')
     for k in ('grain','halation','diffusion','exposure','temporal_grain_correlation'):
         if not isinstance(config[k],(int,float)) or not np.isfinite(config[k]): p.error('Invalid '+k)
     if min(a.grain,a.halation,a.diffusion)<0 or not 0<=a.temporal_grain_correlation<=1: p.error('Invalid effect amount')
-    engine=Vulkan() if a.backend=='vulkan' else None
+    engine=make_engine(a.backend)
     if engine:
         stocks={'film':engine.profiles(),'print':engine.profiles(True)}
     else:
@@ -279,10 +302,12 @@ def main(argv=None):
     for f in files or [a.input]:
         st=f.stat(); source_sig.append([str(f.resolve()),st.st_size,st.st_mtime_ns])
     runtime_signature={}
-    if a.backend=='vulkan':
+    if a.backend in ('vulkan','cuda-lut','cuda-spectral'):
         assets=[ROOT/'build/bridge/libfilmforge_vulkan.so',*sorted((ROOT/'build/ofx-Release/shaders').glob('*.spv')),*sorted((ROOT/'build/ofx-Release').glob('*.f32'))]
     else:
         assets=[ROOT/'upstream/COMMITS.txt',ROOT/'requirements.lock']
+    if a.backend=='cuda-lut': assets.append(ROOT/'src/cuda_lut.py')
+    if a.backend=='cuda-spectral': assets.extend([ROOT/'src/cuda_spectral.py',ROOT/'build/cuda-spectral/libfilmforge_cuda_spectral.so'])
     for asset in [Path(__file__),*assets]:
         runtime_signature[str(asset.relative_to(ROOT))]=hashlib.sha256(asset.read_bytes()).hexdigest()
     fingerprint=hashlib.sha256(json.dumps([config,source_sig,a.start_frame,transfer,w,h,fps,runtime_signature],sort_keys=True).encode()).hexdigest()

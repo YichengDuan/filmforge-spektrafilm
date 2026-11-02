@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "node": "installed SpektrafilmVideoFrames",
+  "shape": [
+    3,
+    33,
+    65,
+    3
+  ],
+  "fps": 25,
+  "backend": "cuda-spectral",
+  "gpu": "RTX A2000 Laptop",
+  "repeat_exact": true,
+  "python": "3.12.11",
+  "numpy": "2.5.4",
+  "host_packages_changed": false
+}

@@ -1,106 +1,94 @@
-# Optional nodes — separate subprocess environment
+# ComfyUI-Spektrafilm
 
-## 中文安装与使用
+三个节点：`SpektrafilmPreset`、`SpektrafilmImage`、`SpektrafilmVideoFrames`。
+胶片模型来自 Andrea Volpato / spektrafilm 与 Aedan Diez / spektrafilm OFX；
+出处与许可见仓库根目录 ACKNOWLEDGEMENTS.md、LICENSES.md。
 
-本仓库提供独立节点包；请选用另行准备的 ComfyUI 测试环境。以下是安装方法，
-不是已在你的现有 ComfyUI 中执行过的操作。
+## 在现有 ComfyUI 安装
 
-先在本项目目录构建隔离运行环境：
+先在本项目完成 OFX 与桥接构建。需要原生 CUDA 时再编译 CUDA 库；使用已有
+CUDA Toolkit 和 C++ 编译器，GLM 只下载到工作区，不安装系统包。
 
 ```bash
 bash scripts/setup_ubuntu.sh
 bash scripts/build_ofx_ubuntu.sh Release
 bash scripts/build_bridge.sh
+bash scripts/build_cuda_spectral.sh  # 可选；本机验证 CUDA 12.0 / GCC 12 / sm_86
+python3 scripts/install_comfyui.py \
+  --comfy-root /path/to/ComfyUI \
+  --host-python /path/to/comfy-python \
+  --device YOUR_VULKAN_INDEX \
+  --icd /usr/share/vulkan/icd.d/nvidia_icd.json \
+  --cuda-device YOUR_NVIDIA_SMI_INDEX
 ```
 
-把 `comfyui/ComfyUI-Spektrafilm` 整个目录复制到所选 ComfyUI 的
-`custom_nodes/ComfyUI-Spektrafilm`。不要把原版 spektrafilm 的 numpy、Qt 或
-其他依赖安装进 ComfyUI 的 Python 环境。处理过程由本项目的 `.venv` 独立运行。
+替换路径和设备编号。CUDA 与 Vulkan 的设备编号可能不同。已有节点会备份到本项目
+`.local/comfyui-backups/`，个人路径写入被 Git 忽略的 `filmforge.local.json`。
+重启 ComfyUI 后在 `SpektrafilmPreset.backend` 选择后端。
+安装器不更换 Python、不安装 ComfyUI 依赖、不修改启动脚本。
+渲染子进程沿用所选 Python/NumPy，GPU 选择只在子进程生效。
 
-启动所选 ComfyUI 前设置本项目的绝对路径：
+| backend | 当前能力 | 依赖与边界 |
+|---|---|---|
+| `cuda-spectral` | 原生 81 波段色彩、曝光、密度 preview grain、曝光阶段 halation、camera diffusion、时域相关性 | 本项目 CUDA 库 + NumPy；渲染 GPU 运算不调用 Vulkan，不使用最终 RGB LUT；未移植 OFX 全部高级参数 |
+| `vulkan` | 当前桥接同一组功能，直接运行上游 renderer | Vulkan 驱动与本项目 Vulkan 库 |
+| `cuda-lut` | GPU 三线性插值的颜色近似 | 需要宿主已有 torch；grain/halation/diffusion/时域相关性必须设为 0 |
+| `cpu-physical` | 原版确定性物理色彩 | 需要独立 Python 3.13 原版环境；现有宿主模式不提供 |
 
-```bash
-export FILMFORGE_ROOT=/absolute/path/to/filmforge-spektrafilm
-# 先用 vulkaninfo --summary 确认设备顺序，再选择自己的 GPU 编号。
-export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
-export SPEKTRAFILM_VULKAN_DEVICE_INDEX=1
-# 然后按该 ComfyUI 环境原有方式启动，不要切换到本项目的 .venv 启动宿主。
-```
+本机现有 Python 3.12.11 / NumPy 2.5.4 已实测原生 CUDA 图片和视频节点。
+新增后端无需把原版 spektrafilm、Qt、colour 或另一个 torch 安装进 ComfyUI。
+当前 CUDA 已优化 RGB 传输、共享内存卷积及相关颗粒的中间结果复用；
+同卡平均耗时对比与实际视频测试见 `docs/CUDA_OPTIMIZATION.md`。
 
-`1` 只是测试机器 RTX 3070 Ti 的 Vulkan 编号，不是所有机器的默认值。
-节点位于 `image/spektrafilm (isolated)` 分类。
+## 图片
 
-### 图片
+连接 `LoadImage → SpektrafilmImage → SaveImage`，再把
+`SpektrafilmPreset.preset_json` 接到 `SpektrafilmImage.preset_json`。
+选择真实胶片与相纸 profile，先用曝光 0，再逐步增加 grain、halation、diffusion。
+类别为 `image/spektrafilm (isolated)`。
 
-按下面连接节点：
+输入为 `[B,H,W,3或4]` 的有限 SDR 浮点 IMAGE；图片按 sRGB 解码。
+alpha 为 straight alpha。输出按 sRGB 编码并裁剪到 0–1，HDR/Log 需先明确转换。
+需要保留浮点动态范围时，使用独立 CLI 的线性 EXR 输出。
 
-```text
-LoadImage.IMAGE ───────────────► SpektrafilmImage.images
-SpektrafilmPreset.preset_json ─► SpektrafilmImage.preset_json
-SpektrafilmImage.IMAGE ────────► SaveImage.images
-```
+## 视频
 
-Preset 可选胶片、相纸、backend、grain、halation、diffusion、seed 与
-temporal_grain_correlation。建议先选 `vulkan`、`kodak_portra_400`、
-`kodak_portra_endura`，效果先设为 0，确认基础渲染后逐步增加。
-`cpu-physical` 是确定性物理颜色模式，尚不接受 grain、halation、diffusion 的非零设置。
+运行 `python3 scripts/create_video_workflows.py` 生成可拖入画布的示例：
 
-### 视频帧
+* `examples/Filmforge_Video_Native_CUDA.json`：原生 CUDA 色彩与空间效果。
+* `examples/Filmforge_Video_Full_Vulkan.json`：上游 Vulkan。
+* `examples/Filmforge_Video_Fast_CUDA_LUT.json`：仅颜色的 LUT 近似。
 
-把已有流程产生的 `IMAGE` 帧批次接到 `SpektrafilmVideoFrames.images`，
-Preset 接 `preset_json`，显式填写 `fps` 和 `start_frame`。输出是处理后的
-`IMAGE` 批次与原样返回的 `fps`，再接你所用视频保存节点。
+使用 ComfyUI 原生 LoadVideo / GetVideoComponents / CreateVideo / SaveVideo，
+保留 fps 与原音轨。选择自己的视频文件，明确 `input_transfer`：普通 Rec.709 视频用
+`bt709`，sRGB 视频用 `srgb`，已知线性帧用 `linear-rec709`。节点输出统一是 sRGB IMAGE。
+示例默认文件名 `filmforge_demo_10s.mp4` 只是测试素材名，公共仓库不包含视频。
 
-分段处理时，`start_frame` 填该段在原视频中的绝对起始帧数；相同片段使用同一
-seed 和配置。它控制 grain 索引，不会自动跳过输入视频。VHS/VideoHelperSuite
-不属于本包依赖，具体宿主的视频保存接口尚未验证。
+`SpektrafilmVideoFrames` 也可接已有的 IMAGE 帧批次。分段处理时设置原片绝对
+`start_frame`；相同 seed、profile、参数与帧索引可重现。时域相关性是线性残差混合，
+不是上游原生 AR(1) 模型。该节点逐帧渲染，但输入批次仍占宿主 RAM；长片使用流式 CLI。
+VHS 是可选的外部节点包，本项目不依赖它，尚未验证 VHS 专用接口。
 
-输入为有限、0–1 范围的 sRGB 浮点 IMAGE；HDR、负值和 NaN/Inf 不接受。
-ComfyUI 输出裁剪到 SDR 范围；需要保留线性浮点范围时请改用独立视频 CLI 的 EXR 输出。
+本机已通过原生 CUDA 的 320×180、250 帧、25fps、带音轨 MP4 流程；
+原生 CUDA 的 720p/1080p 250 帧独立 CLI 验证见 `benchmarks/ubuntu_results.md`。
+API 自动执行已验收；手动操作画布未验收。
 
-示例 `examples/comfyui_api_workflow.json` 是 **API prompt 格式**：需要替换
-LoadImage 的文件名，并通过 ComfyUI API 的 `prompt` 字段提交；它不是能直接拖入
-画布的 UI workflow 格式。此文档未声称完整 ComfyUI 宿主流程已验收。
+## 独立原版环境
 
-### 常见问题
+需要 CPU physical 时，可将本节点目录复制到另一个 ComfyUI 的 `custom_nodes/`，
+启动前设置 `FILMFORGE_ROOT=/absolute/path/to/filmforge-spektrafilm`。
+不配置 `python_executable` 时，worker 使用本项目 `bin/filmforge-video` 和 `.venv`。
+ComfyUI 主进程仍按它原有的方式启动。
 
-* 找不到节点：确认复制的是带 `__init__.py` 的整个节点目录，并重启所选测试宿主。
-* 提示 `Set FILMFORGE_ROOT`：启动宿主的同一进程环境中必须设置上述变量。
-* 共享库不存在：先完成 OFX Release 与 `build_bridge.sh` 构建。
-* Vulkan 不可用：检查宿主启动环境的设备访问权限、ICD 和 GPU 编号；无需重装模型。
-* profile 不可用：Python 与 OFX 的注册表不同，使用该 backend 实际支持的配置。
+## 故障排查
 
-验证范围：模块/schema、profile 枚举、真实 GPU 子进程往返、重复结果和分段重合区
-已测试；实时宿主注册、画布流程与 VHS 尚未测试。现有 ComfyUI 未被修改。
+* 没有 CUDA 选项：先编译 CUDA 库，再带 `--cuda-device` 重新运行安装器，重启宿主。
+* 找不到共享库：完成相应构建脚本；原生 CUDA 首先需要 OFX 生成的光谱数据。
+* invalid device ordinal：重新核对子进程可见 GPU 与 `--cuda-device`。
+* 显存不足：缩小分辨率/批次或使用空闲 GPU；没有自动降低效果质量。
+* profile 不可用：从当前后端的注册表重新选择；原版 Python 与 OFX 名称并不完全相同。
 
-## English reference
-
-The current existing ComfyUI was never modified, imported, restarted, or connected.
-The package in ComfyUI-Spektrafilm contains three nodes. Only Python stdlib loads
-at module import; NumPy and torch are used from the chosen host when processing.
-No simulation, Qt, CUDA or colour dependencies are installed into the host.
-
-For a **new disposable ComfyUI checkout** that you explicitly choose later:
-
-1. Build this workspace with scripts/setup_ubuntu.sh, build_ofx_ubuntu.sh Release,
-   and build_bridge.sh. Do not install spektrafilm into the host environment.
-2. Copy this node directory into that new checkout's custom_nodes/.
-3. Start that host with `FILMFORGE_ROOT=/absolute/path/to/this/workspace` and, on
-   this machine, `VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json` and
-   `SPEKTRAFILM_VULKAN_DEVICE_INDEX=1` to select RTX 3070 Ti.
-4. Use examples/comfyui_api_workflow.json as an **API prompt**, substituting a
-   valid input filename; it is not the UI canvas workflow serialization format.
-
-SpektrafilmPreset enumerates actual runtime registries. Some profile slugs differ
-between Python and OFX; CPU selections are checked against the CPU registry.
-SpektrafilmImage accepts a batch; SpektrafilmVideoFrames additionally passes fps
-and an absolute start_frame. The preset carries seed and temporal correlation.
-Frames use bounded sRGB float IMAGE transport; alpha is straight if supplied,
-and output is clipped for the ComfyUI IMAGE contract. The subprocess memory-maps
-input/output batches and processes one frame at a time. No model weights enter
-the subprocess. Disk/RAM requirements still scale with the host's input batch.
-
-Tested: node module import, schema/profile enumeration, actual Vulkan subprocess
-round trip, repeated output and segment overlap. Not tested: live ComfyUI host
-registration, UI workflow execution or VHS. No GPU LUT node or VideoFile node is
-claimed. CPU physical mode currently disables spatial and stochastic effects.
+English: native CUDA now covers the controls exposed by these three nodes. It is
+not a port of every OFX control or a CUDA OFX plugin. Rendering uses a subprocess,
+existing host Python/NumPy, and the locally built native library. No host packages,
+model weights, or global GPU settings are changed. See docs/CUDA_BACKEND.md.

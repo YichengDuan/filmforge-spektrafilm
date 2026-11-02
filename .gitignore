@@ -5,6 +5,7 @@
 .local/
 .deps/root/
 .deps/packages/
+.deps/glm/
 build/
 install/
 __pycache__/
@@ -24,9 +25,11 @@ dist/
 examples/*
 !examples/preset.json
 !examples/comfyui_api_workflow.json
+!examples/Filmforge_Video_*.json
 benchmarks/*
 !benchmarks/ubuntu_results.md
 !benchmarks/quality.json
 !benchmarks/temporal.json
 !benchmarks/evidence/
 *.pyc
+**/filmforge.local.json

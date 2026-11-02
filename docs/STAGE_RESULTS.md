@@ -1,5 +1,56 @@
 # 执行记录（2026-11-01 晚，本机时间）
 
+## A2000 CUDA adapter 优化验收（2026-11-02）
+
+Done：packed RGB 传输、共享内存 Gaussian tile、相关颗粒共享曝光/显影中间结果。
+既有 RGB/RGBA/alpha 与色彩/时序公式保持；保存的旧 CUDA 对照逐像素精确一致。
+
+Done：用户指定 A2000，100 轮/配置 × 12 配置 × 3 后端，共 3,600 次正式渲染。
+全部配置的优化 CUDA 平均耗时低于 Vulkan；全效果 Portra/Endura 的 720p/1080p
+平均加速约 1.43×/1.49×。真实 MP4 全命令耗时从 43.442/99.383 秒降到
+33.220/76.871 秒（各 250 帧）；音轨/时长/Rec.709 标记通过。
+
+Done：160 profile/效果/时序回归、六项本地测试、现有宿主 Python 3.12.11 的已安装
+VideoFrames 节点重复往返通过。不重启正在运行任务的 ComfyUI，不更换 Python/依赖。
+
+Partial：Compute Sanitizer 未成功注入；没有 memcheck 通过声明。Nsight Compute
+未收集到 kernel 指标，GPU 分段时间使用 CUDA events。初期 3070 Ti 记录受新启动
+的 ComfyUI 任务影响，已标记并发负载；最终验收采用 A2000。
+完整方法、数值、边界和命令见 CUDA_OPTIMIZATION.md。
+
+## 原生 CUDA 与性能定位（2026-11-02）
+
+Done：已有 CUDA 光谱实验扩展为当前 CLI/节点的完整公开功能链，新增上游
+halation/camera diffusion/preview density grain 的 CUDA 移植、相同 seed/frame
+与 rho 残差混合。GLM 固定 1.0.1，CUDA 12.0/GCC12/sm86 编译通过。上游未修改。
+
+Done：160 组 profile 对照、单独/组合效果、100 帧重复与分段精确一致、时域统计、
+错误输入、720p/1080p 各 250 帧 MP4 与音频验收通过。本机现有 Python/NumPy
+完成原生 CUDA 图片保存；独立宿主完成 320×180、250 帧带音轨视频工作流。
+现有宿主节点无丢失；未安装包或修改启动脚本。
+
+Done：初版全效果 CUDA 慢于 Vulkan 约 21%；加入同上游的两分量 diffusion 分组，
+同条件重测耗时差距降至约 7–8%。显式 CUDA events 定位 diffusion/halation
+占本次 GPU 时间约 82–84%。完整数字、边界、命令见 CUDA_BACKEND.md。
+
+Partial：全 OFX 高级参数、生产/合成 grain、DIR/print diffusion/scanner/HDR、
+CUDA OFX 宿主插件、GPU tensor 直接互操作和长期 4K 验收尚未实现。
+当前完成的是 Filmforge CLI/三个节点已经公开的效果，不扩大宣称为全 OFX 移植。
+
+## 后续本机安装（2026-11-02）
+
+按用户新指令，将三个节点安装到正在使用的 ComfyUI 0.42.0；采用其现有 Python
+3.12.11 和 NumPy 2.5.4 执行 Vulkan 渲染子进程，没有安装依赖或修改 Python。
+路径和子进程 GPU 配置保存在节点目录的 filmforge.local.json，不纳入 Git。
+安装器保存旧节点备份，未改 ComfyUI 启动脚本；队列为空时重启加载。
+本机模式只提供 Vulkan backend，原版 CPU physical 继续属于独立环境模式。
+
+实际验证：三个节点出现在 /object_info；原有节点无缺失；宿主 torch 张量经渲染
+输出有限值，图片/视频帧结果一致。通过 /prompt 成功保存两张 256×192 PNG 和
+8 帧、25fps、256×192 的 H.264 MP4，ffprobe 验证时长 0.32 秒。图片 UI workflow
+已保存到用户工作流目录。测试结果位于 logs/comfyui-live-test.json，均留在本机。
+以下为最初阶段记录，保留当时尚未安装宿主的历史状态。
+
 ## A — Done
 
 执行 scripts/probe_ubuntu.sh：Ubuntu 24.04.4、内核 7.0.0-38、驱动 615.71.09、
