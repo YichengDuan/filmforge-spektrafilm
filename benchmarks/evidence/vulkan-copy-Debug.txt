@@ -1,0 +1,2 @@
+16-bit RGBA copy ok: 320x180, passes=1, source_copy_ms=0.060295, cpu_setup_ms=0.01058, command_ms=0.170148, output_copy_ms=0.081237, total_ms=0.32226, scratch_allocs=0, scratch_bytes=0
+32-bit RGBA copy ok: 320x180, passes=1, source_copy_ms=0.051852, cpu_setup_ms=0.006771, command_ms=0.151285, output_copy_ms=0.104499, total_ms=0.314407, scratch_allocs=0, scratch_bytes=0

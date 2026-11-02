@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.7, pytest-9.2.0, pluggy-1.7.0 -- <workspace>/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: <workspace>
+plugins: napari-plugin-engine-0.2.1, platformdirs-4.14.3, npe2-0.10.1, napari-0.6.6
+collecting ... collected 11 items
+
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_analytic_sdr_encode_removes_uniform_lut_derivative_break[Rec.709 Gamma 2.4-<lambda>] PASSED [  9%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_analytic_sdr_encode_removes_uniform_lut_derivative_break[Rec.709 Gamma 2.2-<lambda>] PASSED [ 18%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_analytic_sdr_encode_removes_uniform_lut_derivative_break[DCI-P3-<lambda>] PASSED [ 27%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_analytic_sdr_encode_removes_uniform_lut_derivative_break[sRGB-_signed_srgb_encode] PASSED [ 36%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_analytic_sdr_encode_removes_uniform_lut_derivative_break[Display P3-_signed_srgb_encode] PASSED [ 45%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_prophoto_analytic_encode_matches_expected_piecewise_curve PASSED [ 54%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_generator_marks_simple_sdr_output_transfers_as_analytic PASSED [ 63%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_metal_analytic_sdr_encode_branches_do_not_sample_encode_lut PASSED [ 72%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_vulkan_analytic_sdr_encode_branches_do_not_sample_encode_lut[shader_path0] PASSED [ 81%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_vulkan_analytic_sdr_encode_branches_do_not_sample_encode_lut[shader_path1] PASSED [ 90%]
+upstream/spektrafilm-ofx/tests/test_sdr_transfer_encode.py::test_vulkan_renderer_appends_transfer_params_to_encode_buffer PASSED [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/app_model/types/_keys/_keybindings.py:163
+  <workspace>/.venv/lib/python3.13/site-packages/app_model/types/_keys/_keybindings.py:163: PydanticDeprecatedSince212: Using `@model_validator` with mode='after' on a classmethod is deprecated. Instead, use an instance method. See the documentation at https://pydantic.dev/docs/validation/2.14/concepts/validators/#model-after-validator. Deprecated in Pydantic V2.12 to be removed in V3.0.
+    @model_validator(mode="after")  # type: ignore
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 11 passed, 1 warning in 0.15s =========================

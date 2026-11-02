@@ -1,0 +1,32 @@
+.venv/
+.python/
+.cache/
+.config/
+.local/
+.deps/root/
+.deps/packages/
+build/
+install/
+__pycache__/
+.pytest_cache/
+# Upstream clones carry their own .git histories; lock.json is the source pin.
+upstream/spektrafilm/
+upstream/spektrafilm-ofx/
+upstream/openfx/
+# Local account/configuration placeholders and raw machine logs are never published.
+.agents/
+.aws/
+.codex/
+logs/
+reports/
+dist/
+# Generated media, profile-derived LUTs and local QA assets stay on the workstation.
+examples/*
+!examples/preset.json
+!examples/comfyui_api_workflow.json
+benchmarks/*
+!benchmarks/ubuntu_results.md
+!benchmarks/quality.json
+!benchmarks/temporal.json
+!benchmarks/evidence/
+*.pyc

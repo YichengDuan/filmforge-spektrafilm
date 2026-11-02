@@ -1,0 +1,10 @@
+{
+  "work_directory": "<workspace>/examples/media-test-t6s86mu6",
+  "lossless_exr_segment_equal": true,
+  "resume": true,
+  "config_mismatch_rejected": true,
+  "cpu_physical_video": true,
+  "invalid_vulkan_device_error": true,
+  "hevc_auto_encoder": true,
+  "missing_input_error": true
+}

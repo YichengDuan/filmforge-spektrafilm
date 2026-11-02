@@ -1,0 +1,11 @@
+{
+  "film": "kodak_portra_400",
+  "paper": "kodak_portra_endura",
+  "backend": "vulkan",
+  "grain": 0.35,
+  "halation": 0.3,
+  "diffusion": 0.1,
+  "exposure": 0,
+  "seed": 1234,
+  "temporal_grain_correlation": 0
+}

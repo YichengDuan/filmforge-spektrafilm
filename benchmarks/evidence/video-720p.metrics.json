@@ -1,0 +1,35 @@
+{
+  "command": [
+    "<workspace>/bin/filmforge-video",
+    "--input",
+    "<workspace>/benchmarks/synthetic-720p.mp4",
+    "--output",
+    "<workspace>/benchmarks/rendered-720p.mp4",
+    "--grain",
+    ".35",
+    "--halation",
+    ".3",
+    "--diffusion",
+    ".1",
+    "--audio",
+    "--benchmark"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 53.686055080004735,
+  "parent_peak_rss_kib": 459180,
+  "gpu_total_baseline": {
+    "0": {
+      "name": "NVIDIA GeForce RTX 3070 Ti",
+      "used_mib": 183.0
+    },
+    "1": {
+      "name": "NVIDIA RTX A2000 Laptop GPU",
+      "used_mib": 1626.0
+    }
+  },
+  "gpu_total_peak_mib": {
+    "0": 454.0,
+    "1": 1632.0
+  },
+  "memory_note": "nvidia-smi sampled total-device usage at 0.2s, includes desktop/other processes; RSS is Python parent, not codec children"
+}

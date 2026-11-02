@@ -1,0 +1,6 @@
+{
+  "1": {"class_type": "LoadImage", "inputs": {"image": "example.png"}},
+  "2": {"class_type": "SpektrafilmPreset", "inputs": {"film": "kodak_portra_400", "print_profile": "kodak_portra_endura", "backend": "vulkan", "grain": 0.35, "halation": 0.3, "diffusion": 0.1, "seed": 1234, "temporal_grain_correlation": 0}},
+  "3": {"class_type": "SpektrafilmImage", "inputs": {"images": ["1", 0], "preset_json": ["2", 0]}},
+  "4": {"class_type": "SaveImage", "inputs": {"images": ["3", 0], "filename_prefix": "spektrafilm-test"}}
+}

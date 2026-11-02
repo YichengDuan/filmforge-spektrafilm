@@ -1,0 +1,14 @@
+1a23baace5f2688a47e28119aedae6993cd638e6279a7227dfc52d9a337a1c17  .deps/packages/ffmpeg_7%3a6.1.1-3ubuntu5_amd64.deb
+8767bba0e4cc781a5de0da3e662f656664cc3b8de2399aef6755bac61137727e  .deps/packages/glslang-tools_15.1.0-2~ubuntu0.24.04.2_amd64.deb
+970d92c1697f762235af439d72df8c6cb492be45050a1a00bbe0d0842a137f93  .deps/packages/libavcodec60_7%3a6.1.1-3ubuntu5_amd64.deb
+62c55a1209332142eb01488894b3443060e59b44940189469ac7f8fbe03406ca  .deps/packages/libavdevice60_7%3a6.1.1-3ubuntu5_amd64.deb
+083b800aaf4fd1de817fb8dc12995e6a277c3500159c4a0fa21d36a76b6208ea  .deps/packages/libavfilter9_7%3a6.1.1-3ubuntu5_amd64.deb
+3a855488d50b4ebe04425e5f690e00ebd65d70e60f85c9765d5823a2f82b4969  .deps/packages/libavformat60_7%3a6.1.1-3ubuntu5_amd64.deb
+e57f8cc358f4b1b2af721ca6242723dc12290df543a142811ce7747e2d5b30cc  .deps/packages/libavutil58_7%3a6.1.1-3ubuntu5_amd64.deb
+f0984bf6bff85dc29a44f650841b01a0594775f628b7a4bf5dd45d85d82cb2a7  .deps/packages/libpostproc57_7%3a6.1.1-3ubuntu5_amd64.deb
+d55afe23e07b02b2def1647181a727dfad996001f72b5172da8a99691c3fa208  .deps/packages/libswresample4_7%3a6.1.1-3ubuntu5_amd64.deb
+2c17ae58b35112aace5179d7deea51faa20e82e04847b257f339376b11744e22  .deps/packages/libswscale7_7%3a6.1.1-3ubuntu5_amd64.deb
+9577a2c5379372ca8231e700728390fa7d4991a0d8c6484ad83da849c728e76e  .deps/packages/libvulkan-dev_1.3.275.0-1build1_amd64.deb
+6a17f76a0f75586f1292f6c61a9b07fd0dec963baf6a102b17673f601c6b323a  .deps/packages/ninja-build_1.11.1-2_amd64.deb
+529e396c337d15beb8ed0f03fcbeb2a066e5a818e032e197b6ef2d3328dc7ae9  .deps/packages/spirv-tools_2025.1~rc1-1~ubuntu0.24.04.2_amd64.deb
+994e429b5a4550b46c5bd9a938af1f60c4aa4890e08f661603b9518a8df824d1  .deps/packages/vulkan-tools_1.3.275.0+dfsg1-1_amd64.deb

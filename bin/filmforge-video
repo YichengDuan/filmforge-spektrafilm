@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+source "$(dirname "$0")/../scripts/env.sh"
+exec "$FILMFORGE_ROOT/.venv/bin/python" "$FILMFORGE_ROOT/src/filmforge.py" "$@"

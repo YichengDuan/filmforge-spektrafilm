@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.7, pytest-9.2.0, pluggy-1.7.0 -- <workspace>/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: <workspace>
+plugins: napari-plugin-engine-0.2.1, platformdirs-4.14.3, npe2-0.10.1, napari-0.6.6
+collecting ... collected 6 items
+
+tests/test_bridge.py::test_transfer_roundtrip PASSED                     [ 16%]
+tests/test_bridge.py::test_vulkan_stateless_100_frames PASSED            [ 33%]
+tests/test_bridge.py::test_real_effects_and_alpha PASSED                 [ 50%]
+tests/test_comfy_bridge.py::test_node_subprocess_roundtrip PASSED        [ 66%]
+tests/test_still_io.py::test_still_srgb_alpha_and_16bit_output PASSED    [ 83%]
+tests/test_still_io.py::test_reject_nonfinite_and_negative PASSED        [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/app_model/types/_keys/_keybindings.py:163
+  <workspace>/.venv/lib/python3.13/site-packages/app_model/types/_keys/_keybindings.py:163: PydanticDeprecatedSince212: Using `@model_validator` with mode='after' on a classmethod is deprecated. Instead, use an instance method. See the documentation at https://pydantic.dev/docs/validation/2.14/concepts/validators/#model-after-validator. Deprecated in Pydantic V2.12 to be removed in V3.0.
+    @model_validator(mode="after")  # type: ignore
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 6 passed, 1 warning in 29.02s =========================

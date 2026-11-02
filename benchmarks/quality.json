@@ -1,0 +1,19 @@
+{
+  "comparison": "diagnostic only: same profile names, linear Rec.709 IO, exposure=0, grain/halation/diffusion disabled; remaining upstream defaults, data and reference-white calibrations differ. NOT validated parity.",
+  "linear_rmse": 0.0476069413125515,
+  "linear_psnr_peak1_db": 26.446594410313583,
+  "deltaE2000_D65_srgb_clipped_mean": 2.311530091499547,
+  "deltaE2000_D65_srgb_clipped_max": 8.211843059709377,
+  "vulkan_gray_channel_spread_max": 0.04691252112388611,
+  "python_gray_channel_spread_max": 0.027267485857009888,
+  "vulkan_min": 0.004038629122078419,
+  "vulkan_max": 0.817267656326294,
+  "python_min": 0.003905331017449498,
+  "python_max": 0.7068487405776978,
+  "vulkan_outside_sdr_fraction": 0.0,
+  "scene_input_stops": 17.28771237954945,
+  "color_patches": "synthetic diagnostic RGB swatches, not a calibrated measured ColorChecker",
+  "720p_single_frame_seconds": 0.07206144600058906,
+  "1080p_single_frame_seconds": 0.16867736499989405,
+  "2160p_single_frame_seconds": 0.6596227230038494
+}

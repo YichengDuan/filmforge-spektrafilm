@@ -1,0 +1,5 @@
+{
+  "spektrafilm": {"url": "https://github.com/andreavolpato/spektrafilm.git", "sha": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc"},
+  "spektrafilm-ofx": {"url": "https://github.com/chaert-s/spektrafilm-ofx.git", "sha": "86476afc5b077de77e2278e3658d1ba9309892a1"},
+  "openfx": {"url": "https://github.com/AcademySoftwareFoundation/openfx.git", "sha": "ab779510b2655b4d11a7e01e5c521f9aa8c88976"}
+}

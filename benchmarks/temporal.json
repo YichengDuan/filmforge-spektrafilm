@@ -1,0 +1,11 @@
+{
+  "exact_repeat": true,
+  "exact_segment_overlap": true,
+  "frames": 100,
+  "mean_abs_adjacent_difference": 0.0003878356365021318,
+  "texture_variance": 1.19497812534064e-07,
+  "adjacent_correlation": -0.009580393286460678,
+  "frame_mean_std": 4.953581992594991e-06,
+  "rho07_spatial_adjacent_correlation": 0.7052391950650726,
+  "rho07_repeat": true
+}

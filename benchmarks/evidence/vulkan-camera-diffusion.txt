@@ -1,0 +1,5 @@
+Expected 60 core bootstrap passes, saw 29.
+Expected 60 core bootstrap passes, saw 29.
+Expected 60 core bootstrap passes, saw 29.
+
+exit=1
